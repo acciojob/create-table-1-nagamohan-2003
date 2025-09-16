@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<meta charset=utf-8 /> 
-	<title>Insert row in a table</title> 
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Table</title>
 </head>
-
 <body>
-	<table id="sampleTable" border="1"> 
-		<tr><td>Row1 cell1</td> 
-		<td>Row1 cell2</td></tr> 
-		<tr><td>Row2 cell1</td> 
-		<td>Row2 cell2</td></tr> 
-	</table><br> 
-	
-	<input type="button" onclick="insert_Row()" value="Insert row">  
-    <script type="text/javascript" src="./script.js">
-</script>
+  <table border="1" id="sampleTable">
+    <tr>
+      <td>Row 1 Cell 1</td>
+      <td>Row 1 Cell 2</td>
+    </tr>
+    <tr>
+      <td>Row 2 Cell 1</td>
+      <td>Row 2 Cell 2</td>
+    </tr>
+  </table>
 
+  <button onclick="insert_Row()">Insert row</button>
+
+  <script>
+    function insert_Row() {
+      // get table
+      let table = document.getElementById("sampleTable");
+
+      // insert row at top
+      let newRow = table.insertRow(0);
+
+      // insert two cells
+      let cell1 = newRow.insertCell(0);
+      let cell2 = newRow.insertCell(1);
+
+      // set text
+      cell1.innerText = "New Cell1";
+      cell2.innerText = "New Cell2";
+    }
+  </script>
 </body>
-
 </html>
+
